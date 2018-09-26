@@ -6,7 +6,7 @@
 ;; Keywords: markdown, R
 ;; Created: 19 Sep 2018
 ;; Version: 0.0.1
-;; Package-Requires: ((ess) (markdown-mode) (polymode)) 
+;; Package-Requires: ((ess) (markdown-mode) (polymode))
 ;; URL: https://github.com/gaballench/rmarkdown-goodies
 
 ;; This program is free software; you can redistribute it and/or modify
@@ -24,16 +24,16 @@
 
 ;;; Commentary:
 
-;; rmarkdown-goodies is a small package for extending the scope of markdown-mode so  that it makes it easier to author R markdown documents. Such extensions allow to insert R code chunks with several special-case arguments (mostly echo = FALSE and eval =  FALSE) and a function for compilation using the rmarkdown R package. Please note that correct behavior is ensured if Emacs dependencies (ESS, markdown-mode, polymode) and system dependencies (R and its rmarkdown package) are installed. 
+;; rmarkdown-goodies is a small package for extending the scope of markdown-mode so  that it makes it easier to author R markdown documents.  Such extensions allow to insert R code chunks with several special-case arguments (mostly echo = FALSE and eval =  FALSE) and a function for compilation using the rmarkdown R package.  Please note that correct behavior is ensured if Emacs dependencies (ESS, markdown-mode, polymode) and system dependencies (R and its rmarkdown package) are installed.
 
 ;;; Code:
 
 ;insert an R code chunk without arguments
 (defun rmarkdown-goodies-r-code-chunk ()
-  "Inserts an R code chunk without arguments.
+  "Insert an R code chunk without arguments.
 For the different options available see https://yihui.name/knitr/options/.
 `rmarkdown-goodies-r-text-only-chunk and `rmarkdown-r-silent-chunk are
-special cases of this function. See documentation for these functions for details."
+special cases of this function.  See documentation for these functions for details."
   (interactive)
   (insert "```{r}")
   (newline)
@@ -43,10 +43,10 @@ special cases of this function. See documentation for these functions for detail
 
 ; insert an R code chunk that will not evaluate, i.e., text-only chunk, eval = FALSE
 (defun rmarkdown-goodies-r-text-only-chunk ()
-  "Inserts an R code chunk without arguments.
+  "Insert an R code chunk without arguments.
 For the different options available see https://yihui.name/knitr/options/.
-It is a special case of `rmarkdown-goodies-r-code-chunk with the argument eval = FALSE
-and hence the 'text-only', its code is not evaluated."
+It is a special case of `rmarkdown-goodies-r-code-chunk with the argument
+eval = FALSE and hence the 'text-only', its code is not evaluated."
   (interactive)
   (insert "```{r eval = FALSE}")
   (newline)
@@ -56,10 +56,11 @@ and hence the 'text-only', its code is not evaluated."
 
 ; insert an R code chunk that will not output the code, i.e., silently-evaluated chunk, echo = FALSE
 (defun rmarkdown-goodies-r-silent-chunk ()
-  "Inserts an R code chunk without arguments.
+  "Insert an R code chunk without arguments.
 For the different options available see https://yihui.name/knitr/options/.
-It is a special case of `rmarkdown-goodies-r-code-chunk with the argument echo = FALSE
-and hence the 'silent', its code is executed but the code itself is not rendered."
+It is a special case of `rmarkdown-goodies-r-code-chunk with the argument
+echo = FALSE and hence the 'silent', its code is executed but the code itself
+is not rendered."
   (interactive)
   (insert "```{r echo = FALSE}")
   (newline)
@@ -70,16 +71,16 @@ and hence the 'silent', its code is executed but the code itself is not rendered
 ;; rmarkdown-goodies-compile-rmd will compile the current buffer with Rscript and the render function of the rmarkdown package
 (defun rmarkdown-goodies-compile-rmd ()
   "Compiles the Rmd file.
-This function calls R, and loads the render() function of the rmarkdown package in namespace 
-notation (rmarkdown::render) executing it on the file that is being edited. 
-This function seems to be slower than calling rmarkdown::render from an interactive session, 
-but in contrast it does not require to switch between buffers. It is generally 
-well-behaved for simple R code. For complex/slow code it executes although it might be 
-very slow."
+This function calls R, and loads the render() function of the rmarkdown package
+in namespace notation (rmarkdown::render) executing it on the file that is
+being edited.  This function seems to be slower than calling rmarkdown::render
+from an interactive session, but in contrast it does not require to switch
+between buffers.  It is generally  well-behaved for simple R code.
+For complex/slow code it executes although it might be very slow."
   (interactive)
   (message (concat "Compiling " buffer-file-name "..."))
   (shell-command (concat "Rscript -e 'rmarkdown::render("
-			       (concat "\"" buffer-file-name "\"") 
+			       (concat "\"" buffer-file-name "\"")
 			       ")'"))
   (message "Compilation finished!"))
 
