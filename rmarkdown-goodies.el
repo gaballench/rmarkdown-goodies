@@ -1,4 +1,4 @@
-;;; rmarkdown-goodies.el ---  An extension for authoring R markdown
+;;; rmarkdown-goodies.el ---  An extension for authoring R markdown -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2018  Gustavo  A. Ballen
 
