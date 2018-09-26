@@ -1,12 +1,12 @@
-;;; rmarkdown-goodies.el ---  An extension of markdown-mode for authoring R markdown
+;;; rmarkdown-goodies.el ---  An extension for authoring R markdown
 
 ;; Copyright (C) 2018  Gustavo  A. Ballen
 
 ;; Author: Gustavo A. Ballen <gaballench@gmail.com>
-;; Keywords: markdown, R
+;; Keywords: lisp, languages, wp, files
 ;; Created: 19 Sep 2018
 ;; Version: 0.0.1
-;; Package-Requires: ((ess) (markdown-mode) (polymode))
+;; Package-Requires: ((ess "0.1") (markdown-mode "0.1") (polymode "0.1"))
 ;; URL: https://github.com/gaballench/rmarkdown-goodies
 
 ;; This program is free software; you can redistribute it and/or modify
@@ -91,7 +91,7 @@ For complex/slow code it executes although it might be very slow."
     (define-key markdown-mode-map (kbd "C-c C-c C-c") 'rmarkdown-goodies-r-code-chunk)
     (define-key markdown-mode-map (kbd "C-c C-c C-t") 'rmarkdown-goodies-r-text-only-chunk)
     (define-key markdown-mode-map (kbd "C-c C-c C-s") 'rmarkdown-goodies-r-silent-chunk)
-    (define-key markdown-mode-map (kbd "C-c m d") 'rmarkdown-goodies-compile-rmd)))
+    (define-key markdown-mode-map (kbd "C-c C-c C-o") 'rmarkdown-goodies-compile-rmd)))
 
 (provide 'rmarkdown-goodies)
 ;;; rmarkdown-goodies.el ends here
