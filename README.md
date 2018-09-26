@@ -18,13 +18,15 @@ This package depends on `markdown-mode`, `ESS`, and `polymode` as already mentio
 
 # Installation
 
-This package is available through Melpa. From Emacs, just type:
+This package is expected to be available through Melpa sometime in the future (currently preparing submission). From Emacs, just type:
 
-```{}
-M-x package-list-packages
+```{elisp}
+; M-x package-list-packages ;; not yet
 ```
 
-and then look for `rmarkdown-goodies`. Alternatively, you can justs clone this repo and modify your `.emacs` file (or its relevant replacement file):
+and then look for `rmarkdown-goodies`. 
+
+Alternatively (actually, the current only method available), you can justs clone this repo and modify your `.emacs` file (or its relevant replacement file):
 
 ```{lisp}
 ; load the r-code-chunk code
@@ -33,13 +35,13 @@ and then look for `rmarkdown-goodies`. Alternatively, you can justs clone this r
 
 # Notes
 
-The keystrokes now are implemented with local-key-set so they are available only for markdown buffers. If you find this package interacting with other Emacs functions because of its keystrokes, you can modify it in the lines under the `;; Keybinding` section at the end of the `rmarkdown-goodies.el` file.
+The keystrokes now are implemented with local-key-set so they are available only for markdown buffers. If you find this package interacting with other Emacs functions because of its keystrokes, you can modify it in the lines under the `;; Keybinding` section at the end of the `rmarkdown-goodies.el` file. Please note that [Emacs Key Binding Conventions](https://www.gnu.org/software/emacs/manual/html_node/elisp/Key-Binding-Conventions.html) were followed, so you are also encouraged to keep them in mind if modifying any combination.
 
-Now the compiler function pass messages to the minibuffer indicating that compilation is taking place, and then when it finishes.
+Now the compiler function passes messages to the minibuffer indicating that compilation is taking place, and then when it's done.
 
 # Usage
 
 - Insert an `R` code chunk with `C-c C-c C-c` (or its alternative if you modify the key combination as indicated above).
 - Insert a text-only `R` code chunk with `C-c C-c C-t`. This generates an `R` code chunk with the `eval = FALSE` argument
 - Insert a silent `R` code chunk with `C-c C-c C-s`. This generates an `R` code chunk with the `echo = FALSE` argument
-- Compilation of the current buffer works with `C-c m d`
+- Compilation of the current buffer works with `C-c C-c C-o`
