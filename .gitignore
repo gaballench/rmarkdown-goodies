@@ -6,6 +6,10 @@
 
 # Backup files
 *~
+*\#
 
 # Undo-tree save-files
 *.~undo-tree
+
+# markdown compilation results
+*.pdf
