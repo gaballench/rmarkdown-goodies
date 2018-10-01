@@ -82,7 +82,7 @@ For complex/slow code it executes although it might be very slow."
   (shell-command (concat "Rscript -e 'rmarkdown::render("
                          (concat "\"" buffer-file-name "\"")
 			 ")'"))
-  (message (concat "Compiling " (file-name-nondirectory buffer-file-name) "..." "done"))
+  (message (concat "Compiling " (file-name-nondirectory buffer-file-name) "..." "done")))
 
 
 ;; Keybinding
