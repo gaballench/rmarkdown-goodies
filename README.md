@@ -1,6 +1,6 @@
-# rmarkdown-goodies
+# arrr-goodies
 
-Repo for the `rmarkdown-goodies` emacs package, intended to complement `markdown-mode` for `R` markdown.
+Repo for the `arrr-goodies` emacs package, intended to complement `markdown-mode` for `R` markdown.
 
 Although `markdown-mode` is full-featured, it seems to lack a keystroke for inserting specifically an `R` code chunk; the latter is a quite specific need and therefore there wouldn't be any reason to blame such an amazing package for lacking the feature beside that an R coder would miss such functionality already availabe in RStudio. It is worthy to mention that the combination of `markdown-mode`, `ESS`, and `polymode` make Emacs a perfect platform for writing Rmarkdown, markdown, and for interactive work.
 
@@ -24,18 +24,18 @@ This package is expected to be available through Melpa sometime in the future (c
 ; M-x package-list-packages ;; not yet
 ```
 
-and then look for `rmarkdown-goodies`. 
+and then look for `arrr-goodies`. 
 
 Alternatively (actually, the current only method available), you can justs clone this repo and modify your `.emacs` file (or its relevant replacement file):
 
 ```{lisp}
 ; load the r-code-chunk code
-(load "path/to/this/repo/rmarkdown-goodies/rmarkdown-goodies.el")
+(load "path/to/this/repo/arrr-goodies/arrr-goodies.el")
 ```
 
 # Notes
 
-The keystrokes now are implemented with local-key-set so they are available only for markdown buffers. If you find this package interacting with other Emacs functions because of its keystrokes, you can modify it in the lines under the `;; Keybinding` section at the end of the `rmarkdown-goodies.el` file. Please note that [Emacs Key Binding Conventions](https://www.gnu.org/software/emacs/manual/html_node/elisp/Key-Binding-Conventions.html) were followed, so you are also encouraged to keep them in mind if modifying any combination.
+The keystrokes now are implemented with local-key-set so they are available only for markdown buffers. If you find this package interacting with other Emacs functions because of its keystrokes, you can modify it in the lines under the `;; Keybinding` section at the end of the `arrr-goodies.el` file. Please note that [Emacs Key Binding Conventions](https://www.gnu.org/software/emacs/manual/html_node/elisp/Key-Binding-Conventions.html) were followed, so you are also encouraged to keep them in mind if modifying any combination.
 
 Now the compiler function passes messages to the minibuffer indicating that compilation is taking place, and then when it's done.
 

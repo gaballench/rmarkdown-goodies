@@ -1,4 +1,4 @@
-;;; rmarkdown-goodies.el ---  An extension for authoring R markdown -*- lexical-binding: t; -*-
+;;; arrr-goodies.el ---  An extension for authoring R markdown -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2018  Gustavo  A. Ballen
 
@@ -7,7 +7,7 @@
 ;; Created: 19 Sep 2018
 ;; Version: 0.0.1
 ;; Package-Requires: ((ess "0.1") (markdown-mode "0.1") (polymode "0.1"))
-;; URL: https://github.com/gaballench/rmarkdown-goodies
+;; URL: https://github.com/gaballench/arrr-goodies
 
 ;; This program is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -24,15 +24,15 @@
 
 ;;; Commentary:
 
-;; rmarkdown-goodies is a small package for extending the scope of markdown-mode so  that it makes it easier to author R markdown documents.  Such extensions allow to insert R code chunks with several special-case arguments (mostly echo = FALSE and eval =  FALSE) and a function for compilation using the rmarkdown R package.  Please note that correct behavior is ensured if Emacs dependencies (ESS, markdown-mode, polymode) and system dependencies (R and its rmarkdown package) are installed.
+;; arrr-goodies is a small package for extending the scope of markdown-mode so  that it makes it easier to author R markdown documents.  Such extensions allow to insert R code chunks with several special-case arguments (mostly echo = FALSE and eval =  FALSE) and a function for compilation using the arrr R package.  Please note that correct behavior is ensured if Emacs dependencies (ESS, markdown-mode, polymode) and system dependencies (R and its arrr package) are installed.
 
 ;;; Code:
 
 ;insert an R code chunk without arguments
-(defun rmarkdown-goodies-r-code-chunk ()
+(defun arrr-goodies-r-code-chunk ()
   "Insert an R code chunk without arguments.
 For the different options available see https://yihui.name/knitr/options/.
-`rmarkdown-goodies-r-text-only-chunk and `rmarkdown-r-silent-chunk are
+`arrr-goodies-r-text-only-chunk and `arrr-r-silent-chunk are
 special cases of this function.  See documentation for these functions for details."
   (interactive)
   (insert "```{r}")
@@ -42,10 +42,10 @@ special cases of this function.  See documentation for these functions for detai
   (backward-char 4))
 
 ; insert an R code chunk that will not evaluate, i.e., text-only chunk, eval = FALSE
-(defun rmarkdown-goodies-r-text-only-chunk ()
+(defun arrr-goodies-r-text-only-chunk ()
   "Insert an R code chunk without arguments.
 For the different options available see https://yihui.name/knitr/options/.
-It is a special case of `rmarkdown-goodies-r-code-chunk with the argument
+It is a special case of `arrr-goodies-r-code-chunk with the argument
 eval = FALSE and hence the 'text-only', its code is not evaluated."
   (interactive)
   (insert "```{r eval = FALSE}")
@@ -55,10 +55,10 @@ eval = FALSE and hence the 'text-only', its code is not evaluated."
   (backward-char 4))
 
 ; insert an R code chunk that will not output the code, i.e., silently-evaluated chunk, echo = FALSE
-(defun rmarkdown-goodies-r-silent-chunk ()
+(defun arrr-goodies-r-silent-chunk ()
   "Insert an R code chunk without arguments.
 For the different options available see https://yihui.name/knitr/options/.
-It is a special case of `rmarkdown-goodies-r-code-chunk with the argument
+It is a special case of `arrr-goodies-r-code-chunk with the argument
 echo = FALSE and hence the 'silent', its code is executed but the code itself
 is not rendered."
   (interactive)
@@ -68,31 +68,31 @@ is not rendered."
   (insert-before-markers "```")
   (backward-char 4))
 
-;; rmarkdown-goodies-compile-rmd will compile the current buffer with Rscript and the render function of the rmarkdown package
-(defun rmarkdown-goodies-compile-rmd ()
+;; arrr-goodies-compile-rmd will compile the current buffer with Rscript and the render function of the arrr package
+(defun arrr-goodies-compile-rmd ()
   "Compiles the Rmd file.
-This function calls R, and loads the render() function of the rmarkdown package
-in namespace notation (rmarkdown::render) executing it on the file that is
-being edited.  This function seems to be slower than calling rmarkdown::render
-from an interactive session, but in contrast it does not require to switch
+This function calls R, and loads the render() function of the arrr package
+in namespace notation (arrr::render) executing it on the file that is
+being edited.  This function seems to be slower than calling arrr::render
+to an interactive session, but in contrast it does not require to switch
 between buffers.  It is generally  well-behaved for simple R code.
 For complex/slow code it executes although it might be very slow."
   (interactive)
   (message (concat "Compiling " (file-name-nondirectory buffer-file-name) "..."))
-  (shell-command (concat "Rscript -e 'rmarkdown::render("
+  (shell-command (concat "Rscript -e 'arrr::render("
                          (concat "\"" buffer-file-name "\"")
 			 ")'"))
-  (message (concat "Compiling " (file-name-nondirectory buffer-file-name) "..." "done"))
+  (message (concat "Compiling " (file-name-nondirectory buffer-file-name) "..." "done")))
 
 
 ;; Keybinding
 (add-hook
  'markdown-mode-hook
  '(lambda ()
-    (define-key markdown-mode-map (kbd "C-c C-c C-c") 'rmarkdown-goodies-r-code-chunk)
-    (define-key markdown-mode-map (kbd "C-c C-c C-t") 'rmarkdown-goodies-r-text-only-chunk)
-    (define-key markdown-mode-map (kbd "C-c C-c C-s") 'rmarkdown-goodies-r-silent-chunk)
-    (define-key markdown-mode-map (kbd "C-c C-c C-o") 'rmarkdown-goodies-compile-rmd)))
+    (define-key markdown-mode-map (kbd "C-c C-c C-c") 'arrr-goodies-r-code-chunk)
+    (define-key markdown-mode-map (kbd "C-c C-c C-t") 'arrr-goodies-r-text-only-chunk)
+    (define-key markdown-mode-map (kbd "C-c C-c C-s") 'arrr-goodies-r-silent-chunk)
+    (define-key markdown-mode-map (kbd "C-c C-c C-o") 'arrr-goodies-compile-rmd)))
 
-(provide 'rmarkdown-goodies)
-;;; rmarkdown-goodies.el ends here
+(provide 'arrr-goodies)
+;;; arrr-goodies.el ends here
