@@ -79,7 +79,7 @@ between buffers.  It is generally  well-behaved for simple R code.
 For complex/slow code it executes although it might be very slow."
   (interactive)
   (message (concat "Compiling " (file-name-nondirectory buffer-file-name) "..."))
-  (shell-command (concat "Rscript -e 'arrr::render("
+  (shell-command (concat "Rscript -e 'rmarkdown::render("
                          (concat "\"" buffer-file-name "\"")
 			 ")'"))
   (message (concat "Compiling " (file-name-nondirectory buffer-file-name) "..." "done")))
