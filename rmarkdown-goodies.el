@@ -89,10 +89,10 @@ For complex/slow code it executes although it might be very slow."
 (add-hook
  'markdown-mode-hook
  '(lambda ()
-    (define-key markdown-mode-map (kbd "C-c C-c C-c") 'arrr-goodies-r-code-chunk)
-    (define-key markdown-mode-map (kbd "C-c C-c C-t") 'arrr-goodies-r-text-only-chunk)
-    (define-key markdown-mode-map (kbd "C-c C-c C-s") 'arrr-goodies-r-silent-chunk)
-    (define-key markdown-mode-map (kbd "C-c C-c C-o") 'arrr-goodies-compile-rmd)))
+    (define-key markdown-mode-map (kbd "C-c M-c") 'arrr-goodies-r-code-chunk)
+    (define-key markdown-mode-map (kbd "C-c M-t") 'arrr-goodies-r-text-only-chunk)
+    (define-key markdown-mode-map (kbd "C-c M-s") 'arrr-goodies-r-silent-chunk)
+    (define-key markdown-mode-map (kbd "C-c M-o") 'arrr-goodies-compile-rmd)))
 
 (provide 'arrr-goodies)
 ;;; arrr-goodies.el ends here
