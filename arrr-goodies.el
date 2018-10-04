@@ -24,7 +24,7 @@
 
 ;;; Commentary:
 
-;; arrr-goodies is a small package for extending the scope of markdown-mode so  that it makes it easier to author R markdown documents.  Such extensions allow to insert R code chunks with several special-case arguments (mostly echo = FALSE and eval =  FALSE) and a function for compilation using the arrr R package.  Please note that correct behavior is ensured if Emacs dependencies (ESS, markdown-mode, polymode) and system dependencies (R and its arrr package) are installed.
+;; arrr-goodies is a small package for extending the scope of markdown-mode so  that it makes it easier to author R markdown documents.  Such extensions allow to insert R code chunks with several special-case arguments (mostly echo = FALSE and eval =  FALSE) and a function for compilation using the arrr R package.  Please note that correct behavior is ensured if Emacs dependencies (ESS, markdown-mode, polymode) and system dependencies (R and its rmarkdown package) are installed.
 
 ;;; Code:
 
