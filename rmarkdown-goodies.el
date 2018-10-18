@@ -35,6 +35,8 @@ For the different options available see https://yihui.name/knitr/options/.
 `rmarkdown-goodies-r-text-only-chunk and `rmarkdown-r-silent-chunk are
 special cases of this function.  See documentation for these functions for details."
   (interactive)
+  (newline)
+  (backward-char 1)
   (insert "```{r}")
   (newline)
   (newline)
@@ -48,6 +50,8 @@ For the different options available see https://yihui.name/knitr/options/.
 It is a special case of `rmarkdown-goodies-r-code-chunk with the argument
 eval = FALSE and hence the 'text-only', its code is not evaluated."
   (interactive)
+  (newline)
+  (backward-char 1)
   (insert "```{r eval = FALSE}")
   (newline)
   (newline)
@@ -62,6 +66,8 @@ It is a special case of `rmarkdown-goodies-r-code-chunk with the argument
 echo = FALSE and hence the 'silent', its code is executed but the code itself
 is not rendered."
   (interactive)
+  (newline)
+  (backward-char 1)
   (insert "```{r echo = FALSE}")
   (newline)
   (newline)

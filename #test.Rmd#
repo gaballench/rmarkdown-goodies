@@ -1,0 +1,22 @@
+---
+title: Testing `r-code-chunk`
+author: Gustavo A. Ballen
+output: pdf_document
+---
+
+# Intro
+
+This is a document intended to try `r-code-chunk` for insertion of R code chunks (as should be already obvious from the name). For instance:
+
+```{r}
+x <- rnorm(50)
+y <- rnorm(50)
+```
+
+```{r echo = FALSE}
+plot(x = x, y = y)
+```
+```{r}
+
+```
+
