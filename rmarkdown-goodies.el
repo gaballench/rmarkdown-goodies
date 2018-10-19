@@ -132,6 +132,8 @@ For complex/slow code it executes although it might be very slow."
     (define-key markdown-mode-map (kbd "C-c M-c") 'rmarkdown-goodies-r-code-chunk)
     (define-key markdown-mode-map (kbd "C-c M-t") 'rmarkdown-goodies-r-text-only-chunk)
     (define-key markdown-mode-map (kbd "C-c M-s") 'rmarkdown-goodies-r-silent-chunk)
+    (define-key markdown-mode-map (kbd "C-c M-b") 'rmarkdown-goodies-bash-code-chunk)
+    (define-key markdown-mode-map (kbd "C-c M-n") 'rmarkdown-goodies-bash-text-only-chunk)
     (define-key markdown-mode-map (kbd "C-c M-o") 'rmarkdown-goodies-compile-rmd)))
 
 (provide 'rmarkdown-goodies)
