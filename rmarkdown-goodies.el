@@ -74,6 +74,38 @@ is not rendered."
   (insert-before-markers "```")
   (backward-char 4))
 
+;insert a bash code chunk without arguments
+(defun rmarkdown-goodies-bash-code-chunk ()
+  "Insert a bash code chunk without arguments.
+Please note that this will be executed when compiled.
+`rmarkdown-bash-text-only-chunk is a special case of 
+this function. See documentation for these functions for details."
+  (interactive)
+  (newline)
+  (backward-char 1)
+  (insert "```{bash}")
+  (newline)
+  (newline)
+  (insert-before-markers "```")
+  (backward-char 4))
+
+; insert an R code chunk that will not evaluate, i.e., text-only chunk, eval = FALSE
+(defun rmarkdown-goodies-bash-text-only-chunk ()
+  "Insert a bash code chunk with the argument `eval = FALSE'.
+This code chunk will not be executed when compiled, 
+so it is useful for documenting stuff that is not intended 
+to be executed every time the file is compiled.
+It is a special case of `rmarkdown-goodies-bash-code-chunk with the argument
+eval = FALSE and hence the 'text-only', its code is not evaluated."
+  (interactive)
+  (newline)
+  (backward-char 1)
+  (insert "```{bash eval = FALSE}")
+  (newline)
+  (newline)
+  (insert-before-markers "```")
+  (backward-char 4))
+
 ;; rmarkdown-goodies-compile-rmd will compile the current buffer with Rscript and the render function of the rmarkdown package
 (defun rmarkdown-goodies-compile-rmd ()
   "Compiles the Rmd file.
