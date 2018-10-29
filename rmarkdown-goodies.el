@@ -38,8 +38,7 @@ special cases of this function.  See documentation for these functions for detai
   (newline)
   (backward-char 1)
   (insert "```{r}")
-  (newline)
-  (newline)
+  (newline 2)
   (insert-before-markers "```")
   (backward-char 4))
 
@@ -53,8 +52,7 @@ eval = FALSE and hence the 'text-only', its code is not evaluated."
   (newline)
   (backward-char 1)
   (insert "```{r eval = FALSE}")
-  (newline)
-  (newline)
+  (newline 2)
   (insert-before-markers "```")
   (backward-char 4))
 
@@ -69,8 +67,7 @@ is not rendered."
   (newline)
   (backward-char 1)
   (insert "```{r echo = FALSE}")
-  (newline)
-  (newline)
+  (newline 2)
   (insert-before-markers "```")
   (backward-char 4))
 
@@ -84,8 +81,7 @@ this function. See documentation for these functions for details."
   (newline)
   (backward-char 1)
   (insert "```{bash}")
-  (newline)
-  (newline)
+  (newline 2)
   (insert-before-markers "```")
   (backward-char 4))
 
@@ -101,8 +97,7 @@ eval = FALSE and hence the 'text-only', its code is not evaluated."
   (newline)
   (backward-char 1)
   (insert "```{bash eval = FALSE}")
-  (newline)
-  (newline)
+  (newline 2)
   (insert-before-markers "```")
   (backward-char 4))
 
